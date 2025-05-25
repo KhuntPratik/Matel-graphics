@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure Designs - Shree Matel Graphics</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brochure Design Showcase Styles */
+        .brochure-showcase {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .brochure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .brochure-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .brochure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .brochure-preview {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brochure-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .brochure-card:hover .brochure-preview img {
+            transform: scale(1.1);
+        }
+
+        .brochure-content {
+            padding: 25px;
+        }
+
+        .brochure-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .brochure-content p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .brochure-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .brochure-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .brochure-btn {
+            padding: 8px 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .brochure-btn:hover {
+            background: #2980b9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Brochure Variations */
+        .brochure-card.premium {
+            border: 2px solid #f1c40f;
+        }
+
+        .brochure-card.premium .brochure-content h3 {
+            color: #f1c40f;
+        }
+
+        .brochure-card.modern {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        .brochure-card.modern .brochure-content h3,
+        .brochure-card.modern .brochure-content p {
+            color: white;
+        }
+
+        .brochure-card.modern .feature-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .brochure-card.minimal {
+            background: #ffffff;
+            border: 1px solid #eee;
+        }
+
+        .brochure-card.minimal .brochure-content h3 {
+            font-size: 1.3rem;
+        }
+
+        .brochure-card.minimal .feature-tag {
+            background: #f8f9fa;
+            color: #666;
+        }
+
+        /* Brochure Categories */
+        .brochure-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            background: #ffffff;
+            border: 2px solid #3498db;
+            color: #3498db;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .brochure-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .brochure-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/matel logo.png" alt="Shree Matel Graphics">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="brochure.html">Brochure Designs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Brochure Design Showcase Section -->
+    <section class="brochure-showcase">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-badge">Our Designs</span>
+                <h2>Brochure Collection</h2>
+                <p>Explore our premium collection of brochure designs</p>
+            </div>
+
+            <!-- Brochure Categories -->
+            <div class="brochure-categories" data-aos="fade-up" data-aos-delay="100">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Business</button>
+                <button class="category-btn">Real Estate</button>
+                <button class="category-btn">Education</button>
+                <button class="category-btn">Premium</button>
+            </div>
+
+            <div class="brochure-grid">
+                <!-- Premium Business Brochure -->
+                <div class="brochure-card premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="brochure-preview">
+                        <img src="images/brochure1.jpg" alt="Premium Business Brochure">
+                    </div>
+                    <div class="brochure-content">
+                        <h3>Corporate Elite</h3>
+                        <p>Elegant business brochure with premium finish</p>
+                        <div class="brochure-features">
+                            <span class="feature-tag">Gold Foil</span>
+                            <span class="feature-tag">Spot UV</span>
+                            <span class="feature-tag">Premium Paper</span>
+                        </div>
+                        <div class="brochure-footer">
+                            <span class="price">₹2,999</span>
+                            <a href="#" class="brochure-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern Real Estate Brochure -->
+                <div class="brochure-card modern" data-aos="fade-up" data-aos-delay="200">
+                    <div class="brochure-preview">
+                        <img src="images/brochure2.jpg" alt="Modern Real Estate Brochure">
+                    </div>
+                    <div class="brochure-content">
+                        <h3>Property Showcase</h3>
+                        <p>Clean and contemporary design with bold typography</p>
+                        <div class="brochure-features">
+                            <span class="feature-tag">Modern</span>
+                            <span class="feature-tag">Elegant</span>
+                            <span class="feature-tag">Luxury</span>
+                        </div>
+                        <div class="brochure-footer">
+                            <span class="price">₹1,999</span>
+                            <a href="#" class="brochure-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Minimal Education Brochure -->
+                <div class="brochure-card minimal" data-aos="fade-up" data-aos-delay="300">
+                    <div class="brochure-preview">
+                        <img src="images/brochure3.jpg" alt="Minimal Education Brochure">
+                    </div>
+                    <div class="brochure-content">
+                        <h3>Academic Excellence</h3>
+                        <p>Minimalist design with subtle textures</p>
+                        <div class="brochure-features">
+                            <span class="feature-tag">Simple</span>
+                            <span class="feature-tag">Elegant</span>
+                            <span class="feature-tag">Clean</span>
+                        </div>
+                        <div class="brochure-footer">
+                            <span class="price">₹1,499</span>
+                            <a href="#" class="brochure-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Business Brochure -->
+                <div class="brochure-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="brochure-preview">
+                        <img src="images/brochure4.jpg" alt="Creative Business Brochure">
+                    </div>
+                    <div class="brochure-content">
+                        <h3>Creative Business</h3>
+                        <p>Unique design with creative elements</p>
+                        <div class="brochure-features">
+                            <span class="feature-tag">Creative</span>
+                            <span class="feature-tag">Unique</span>
+                            <span class="feature-tag">Custom</span>
+                        </div>
+                        <div class="brochure-footer">
+                            <span class="price">₹2,499</span>
+                            <a href="#" class="brochure-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate Brochure -->
+                <div class="brochure-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="brochure-preview">
+                        <img src="images/brochure5.jpg" alt="Corporate Brochure">
+                    </div>
+                    <div class="brochure-content">
+                        <h3>Corporate Profile</h3>
+                        <p>Professional design for corporate identity</p>
+                        <div class="brochure-features">
+                            <span class="feature-tag">Professional</span>
+                            <span class="feature-tag">Corporate</span>
+                            <span class="feature-tag">Classic</span>
+                        </div>
+                        <div class="brochure-footer">
+                            <span class="price">₹1,799</span>
+                            <a href="#" class="brochure-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luxury Real Estate Brochure -->
+                <div class="brochure-card premium" data-aos="fade-up" data-aos-delay="600">
+                    <div class="brochure-preview">
+                        <img src="images/brochure6.jpg" alt="Luxury Real Estate Brochure">
+                    </div>
+                    <div class="brochure-content">
+                        <h3>Luxury Properties</h3>
+                        <p>Premium black design with silver accents</p>
+                        <div class="brochure-features">
+                            <span class="feature-tag">Luxury</span>
+                            <span class="feature-tag">Silver Foil</span>
+                            <span class="feature-tag">Premium</span>
+                        </div>
+                        <div class="brochure-footer">
+                            <span class="price">₹3,499</span>
+                            <a href="#" class="brochure-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Shree Matel Graphics</h3>
+                    <p>Your trusted partner for professional graphics and printing solutions. We combine creativity with technical expertise to deliver exceptional results for your business needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="brochure.html">Brochure Designs</a></li>
+                        <li><a href="index.html#services">Our Services</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Mavdi, Rajkot, Gujarat</a></li>
+                        <li><a href="tel:+919824511010"><i class="fas fa-phone"></i> +91 9824511010</a></li>
+                        <li><a href="mailto:matelgraphics@gmail.com"><i class="fas fa-envelope"></i> matelgraphics@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Shree Matel Graphics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Category filter functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const brochureCards = document.querySelectorAll('.brochure-card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.textContent.toLowerCase();
+                
+                brochureCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const cardCategory = card.classList.contains(category) ? category : 'other';
+                        card.style.display = cardCategory === category ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
