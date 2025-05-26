@@ -3,369 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packaging Designs - Shree Matel Graphics</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
+    <title>PAC Design</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Packaging Design Showcase Styles */
-        .packaging-showcase {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .packaging-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .packaging-card {
-            background: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .packaging-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .packaging-preview {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1/1;
+        .pac-section {
+            padding: 50px 0;
             background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: 76px;
         }
 
-        .packaging-preview img {
+        .pac-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pac-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            width: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pac-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .pac-image {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-            padding: 20px;
-        }
-
-        .packaging-card:hover .packaging-preview img {
-            transform: scale(1.1);
-        }
-
-        .packaging-content {
-            padding: 25px;
-        }
-
-        .packaging-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .packaging-content p {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .packaging-features {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .feature-tag {
-            background: rgba(52, 152, 219, 0.1);
-            color: #3498db;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .packaging-footer {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .packaging-btn {
-            padding: 8px 20px;
-            background: #3498db;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .packaging-btn:hover {
-            background: #2980b9;
-            color: white;
-            transform: translateX(5px);
-        }
-
-        /* Packaging Variations */
-        .packaging-card.premium {
-            border: 2px solid #f1c40f;
-        }
-
-        .packaging-card.premium .packaging-content h3 {
-            color: #f1c40f;
-        }
-
-        .packaging-card.modern {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-        }
-
-        .packaging-card.modern .packaging-content h3,
-        .packaging-card.modern .packaging-content p {
-            color: white;
-        }
-
-        .packaging-card.modern .feature-tag {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .packaging-card.minimal {
-            background: #ffffff;
-            border: 1px solid #eee;
-        }
-
-        .packaging-card.minimal .packaging-content h3 {
-            font-size: 1.3rem;
-        }
-
-        .packaging-card.minimal .feature-tag {
-            background: #f8f9fa;
-            color: #666;
-        }
-
-        /* Packaging Categories */
-        .packaging-categories {
-            display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            padding: 10px 25px;
-            background: #ffffff;
-            border: 2px solid #3498db;
-            color: #3498db;
-            border-radius: 25px;
-            font-weight: 500;
-            cursor: pointer;
+            padding: 20px;
             transition: all 0.3s ease;
         }
 
-        .category-btn:hover,
-        .category-btn.active {
-            background: #3498db;
-            color: white;
+        .pac-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: all 0.5s ease;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .packaging-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-            }
+        .pac-card:hover .pac-image img {
+            transform: scale(1.05);
+        }
 
-            .packaging-content h3 {
-                font-size: 1.3rem;
+        .pac-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(44, 62, 80, 0.1));
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .pac-card:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .pac-grid {
+                grid-template-columns: 1fr;
+            }
+            .pac-card {
+                height: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/matel logo.png" alt="Shree Matel Graphics">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="pac.html">Packaging Designs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Packaging Design Showcase Section -->
-    <section class="packaging-showcase">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <span class="section-badge">Our Designs</span>
-                <h2>Packaging Collection</h2>
-                <p>Explore our premium collection of packaging designs</p>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/matel logo.png" alt="Shree Matel Graphics">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pac.html">PAC Designs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
             </div>
+        </div>
+    </nav>
 
-            <!-- Packaging Categories -->
-            <div class="packaging-categories" data-aos="fade-up" data-aos-delay="100">
-                <button class="category-btn active">All</button>
-                <button class="category-btn">Food</button>
-                <button class="category-btn">Cosmetics</button>
-                <button class="category-btn">Retail</button>
-                <button class="category-btn">Premium</button>
+    <!-- PAC Section -->
+    <section class="pac-section">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Packaging Designs</h2>
+                <p class="lead text-muted">Explore our premium collection of Packaging designs</p>
             </div>
-
-            <div class="packaging-grid">
-                <!-- Premium Food Packaging -->
-                <div class="packaging-card premium" data-aos="fade-up" data-aos-delay="100">
-                    <div class="packaging-preview">
-                        <img src="images/packaging1.jpg" alt="Premium Food Packaging">
-                    </div>
-                    <div class="packaging-content">
-                        <h3>Luxury Food Box</h3>
-                        <p>Elegant packaging design with premium finish</p>
-                        <div class="packaging-features">
-                            <span class="feature-tag">Gold Foil</span>
-                            <span class="feature-tag">Spot UV</span>
-                            <span class="feature-tag">Premium Paper</span>
-                        </div>
-                        <div class="packaging-footer">
-                            <span class="price">₹2,999</span>
-                            <a href="#" class="packaging-btn">View Details</a>
-                        </div>
+            <div class="pac-grid">
+                <div class="pac-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pac-image">
+                        <img src="images/pac1.jpg" alt="PAC Design">
                     </div>
                 </div>
-
-                <!-- Modern Cosmetic Packaging -->
-                <div class="packaging-card modern" data-aos="fade-up" data-aos-delay="200">
-                    <div class="packaging-preview">
-                        <img src="images/packaging2.jpg" alt="Modern Cosmetic Packaging">
-                    </div>
-                    <div class="packaging-content">
-                        <h3>Beauty Box</h3>
-                        <p>Clean and contemporary design with bold typography</p>
-                        <div class="packaging-features">
-                            <span class="feature-tag">Modern</span>
-                            <span class="feature-tag">Elegant</span>
-                            <span class="feature-tag">Luxury</span>
-                        </div>
-                        <div class="packaging-footer">
-                            <span class="price">₹1,999</span>
-                            <a href="#" class="packaging-btn">View Details</a>
-                        </div>
+                <div class="pac-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pac-image">
+                        <img src="images/pac2.jpg" alt="PAC Design">
                     </div>
                 </div>
-
-                <!-- Minimal Retail Packaging -->
-                <div class="packaging-card minimal" data-aos="fade-up" data-aos-delay="300">
-                    <div class="packaging-preview">
-                        <img src="images/packaging3.jpg" alt="Minimal Retail Packaging">
-                    </div>
-                    <div class="packaging-content">
-                        <h3>Retail Box</h3>
-                        <p>Minimalist design with subtle textures</p>
-                        <div class="packaging-features">
-                            <span class="feature-tag">Simple</span>
-                            <span class="feature-tag">Elegant</span>
-                            <span class="feature-tag">Clean</span>
-                        </div>
-                        <div class="packaging-footer">
-                            <span class="price">₹1,499</span>
-                            <a href="#" class="packaging-btn">View Details</a>
-                        </div>
+                <div class="pac-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pac-image">
+                        <img src="images/pac3.jpg" alt="PAC Design">
                     </div>
                 </div>
-
-                <!-- Creative Food Packaging -->
-                <div class="packaging-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="packaging-preview">
-                        <img src="images/packaging4.jpg" alt="Creative Food Packaging">
-                    </div>
-                    <div class="packaging-content">
-                        <h3>Creative Food Box</h3>
-                        <p>Unique design with creative elements</p>
-                        <div class="packaging-features">
-                            <span class="feature-tag">Creative</span>
-                            <span class="feature-tag">Unique</span>
-                            <span class="feature-tag">Custom</span>
-                        </div>
-                        <div class="packaging-footer">
-                            <span class="price">₹2,499</span>
-                            <a href="#" class="packaging-btn">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Corporate Gift Packaging -->
-                <div class="packaging-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="packaging-preview">
-                        <img src="images/packaging5.jpg" alt="Corporate Gift Packaging">
-                    </div>
-                    <div class="packaging-content">
-                        <h3>Corporate Gift Box</h3>
-                        <p>Professional design for corporate gifts</p>
-                        <div class="packaging-features">
-                            <span class="feature-tag">Professional</span>
-                            <span class="feature-tag">Corporate</span>
-                            <span class="feature-tag">Classic</span>
-                        </div>
-                        <div class="packaging-footer">
-                            <span class="price">₹1,799</span>
-                            <a href="#" class="packaging-btn">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Luxury Cosmetic Packaging -->
-                <div class="packaging-card premium" data-aos="fade-up" data-aos-delay="600">
-                    <div class="packaging-preview">
-                        <img src="images/packaging6.jpg" alt="Luxury Cosmetic Packaging">
-                    </div>
-                    <div class="packaging-content">
-                        <h3>Luxury Cosmetic Box</h3>
-                        <p>Premium black design with silver accents</p>
-                        <div class="packaging-features">
-                            <span class="feature-tag">Luxury</span>
-                            <span class="feature-tag">Silver Foil</span>
-                            <span class="feature-tag">Premium</span>
-                        </div>
-                        <div class="packaging-footer">
-                            <span class="price">₹3,499</span>
-                            <a href="#" class="packaging-btn">View Details</a>
-                        </div>
+                <div class="pac-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="pac-image">
+                        <img src="images/pac4.jpg" alt="PAC Design">
                     </div>
                 </div>
             </div>
@@ -376,25 +148,25 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                <div class="footer-section">
                     <h3>Shree Matel Graphics</h3>
-                    <p>Your trusted partner for professional graphics and printing solutions. We combine creativity with technical expertise to deliver exceptional results for your business needs.</p>
+                    <p>Your trusted partner for professional graphics and printing solutions. We combine creativity with technical expertise to deliver exceptional results.</p>
                     <div class="social-links">
-                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="pac.html">Packaging Designs</a></li>
+                        <li><a href="pac.html">PAC Designs</a></li>
                         <li><a href="index.html#services">Our Services</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                <div class="footer-section">
                     <h3>Contact Info</h3>
                     <ul>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> Mavdi, Rajkot, Gujarat</a></li>
@@ -410,37 +182,13 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 1000,
-            once: true
-        });
-
-        // Category filter functionality
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const packagingCards = document.querySelectorAll('.packaging-card');
-
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                const category = btn.textContent.toLowerCase();
-                
-                packagingCards.forEach(card => {
-                    if (category === 'all') {
-                        card.style.display = 'block';
-                    } else {
-                        const cardCategory = card.classList.contains(category) ? category : 'other';
-                        card.style.display = cardCategory === category ? 'block' : 'none';
-                    }
-                });
-            });
+            once: true,
+            offset: 100
         });
     </script>
 </body>
